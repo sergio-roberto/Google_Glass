@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <title>Google Glass</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel=stylesheet type="text/css" href="_css/estilo.css">
+        <link rel=stylesheet type="text/css" href="_css/form.css" />
+
+        <script language="javascript" src="_javascript/funcoes.js"></script> 
+
+        <script>
+            function calc_total() {
+                document.getElementById("txttotal").value = document.getElementById("txtqtd").value * 1500;
+            }
+
+        </script>
+    </head>
+    <body>
+        <div id="interface">
+
+            <header id="cabecalho"> 
+                <hgroup>
+
+                    <h1>Google Glass</h1>
+                    <h2>A revolução do Google está chegando</h2>
+
+                </hgroup>
+
+                <img id="icone" src="_imagens/contato.png" alt="icone"/>
+
+                <nav id="menu">
+                    <h1>Menu Principal</h1>
+                    <ul onmouseout="mudaIcone('contato')">
+                        <li onmouseover="mudaIcone('home')"><a href="index.html">Home</a></li>
+                        <li onmouseover="mudaIcone('especificacoes')"><a href="specs.html">Especificações</a></li>
+                        <li onmouseover="mudaIcone('fotos')"><a href="fotos.html">Fotos</a></li>
+                        <li onmouseover="mudaIcone('multimidia')"><a href="multimidia.html">Multimídia</a></li> 
+                        <li onmouseover="mudaIcone('contato')"><a href="fale-conosco.html">Fale Conosco</a></li>
+                    </ul>
+                </nav>
+            </header> 
+
+            <section id="corpo-full">
+                <article id="artigo-principal">
+                    <header id="cabecalho-artigo">
+                        <hgroup>
+                            <h3>Fale Conosco > Contato</h3>
+                            <h1>Formulário de Contato</h1>
+                            <h2>por Sergio Roberto</h2>
+                            <h3 class="direita">Atualizado em 02/Fevereiro/2019</h3>
+                        </hgroup>
+                    </header>
+
+                    <!-- Fomulário Incompleto... Falta tratar os dados.-->
+
+                    <form action="mailto:sergio.r.s.junior@hotmail.com" method="post" oninput="calc_total()">
+                        <fieldset id="contato">
+                            <legend>Identificação do Usuário</legend>
+                            <fieldset id="login">
+                                <p><label for="txtnome">Nome: </label><input type="text" name="nome" id="txtnome" size="20" placeholder="Nome Completo"/></p>
+                                <p><label for="txtsenha">Senha: </label><input type="password" name="senha" id="txtsenha" size="8" maxlength="8" placeholder="8 Dígitos" /></p>
+                            </fieldset>
+                            <p><label for="txtemail">E-mail: </label><input type="email" name="email" id="txtemail" size="20" placeholder="exemplo@exemplo.com"/></p>
+                            <fieldset id="sexo">
+                                Sexo: <br/>
+                                <input type="radio" name="sexo" id="radio-masculino" checked /> <label for="radio-masculino"> Masculino </label><br/>
+                                <input type="radio" name="sexo" id="radio-feminino"/>  <label for="radio-feminino">Feminino </label><br/>
+                            </fieldset>
+                            <p><label for="txtdata"> Data de Nascimento: </label><input type="date" name="data" id="txtdata" max="2019-01-01" /></p>
+
+                        </fieldset>
+
+                        <fieldset id="endereco"> 
+                            <legend>Endereço</legend>
+                            <label for="txtlogradouro"> Logradouro: </label> <input type="text" name="logradouro" id="txtlogradouro" size="15" maxlength="100" placeholder="Rua, Av, Trav, ..." />
+                            <label for="txtnumero">Número: </label> <input type="number" name="numero" id="txtnumero" placeholder="Número" min="0" max="999999"/>
+                            <p>Estado: 
+                                <select>
+                                    <optgroup label="Sudeste">
+                                        <option value="SP" selected>São Paulo</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="SC">Santa Catarina</option>
+                                    </optgroup>
+                                    <optgroup label="Nordeste">
+                                        <option value="PB">Paraiba</option>
+                                        <option value="PE">Pernambuco</option>
+                                        <option value="BA">Bahia</option>
+                                    </optgroup>
+                                </select>   </p>
+
+                            <p>Cidade: <input type="text" name="cidade" id="txtarea" placeholder="Cidade" size="20" list="cidades"/> </p>
+                            <datalist id="cidades">
+                                <option value="São Paulo"></option>
+                                <option value="Leme"></option>
+                                <option value="Niterói"></option>
+                            </datalist>
+                        </fieldset>
+
+                        <fieldset id="mensagem">
+                            <legend>Mensagem</legend>
+                            <p><label for="range-urgencia">Grau de Urgência: </label>Min <input type="range" name="urgencia" id="range-urgencia" min="0" max="10" step="2"  value="0"/>Max</p>
+                            <p><label for="txtmensagem" id="lblmensagem">Mensagem: </label><textarea name="mensagem" id="txtmensagem" placeholder="Escreva Aqui sua Mensagem..." cols="40" rows="5"></textarea> </p>
+                        </fieldset>
+
+                        <fieldset id="pagamento">
+                            <legend>Quero um Google Glass</legend> <br/>
+                            <input type="checkbox" name="caixa-selecao" id="checkbox" checked/> <label for="checkbox">Gostaria de adquirir um Google Glass quando disponível</label>
+                            <p><label for="cores"> Cor: </label><input type="color" name="cor" id="cores" value="#007fff" /></p>
+                            <p><label for="txtqtd"> Quantidade: </label> <input type="number" name="qtd" id="txtqtd" value="0" min="1" max="5"/> </p>
+                            <p><label for="txttotal">Preço Total: R$ </label><input type="text" name="total" id="txttotal" size="10" placeholder="Total a Pagar" readonly/></p>
+                        </fieldset> 
+
+                        <p><input type="submit" name="enviar" id="btnenviar" value="Enviar"/></p>
+                    </form>
+                </article>
+            </section>
+
+            <footer id="rodape">
+                <p>Copyright &copy; 2019 - by Sergio Roberto<br/>
+                    <a href="http://facebook.com" target="_blank">Facebook</a> | 
+                    <a href="http://twitter.com" target="_blank">Twitter</a> |
+                    <a href="https://github.com/sergioRoberto321" target="_blank">Git Hub</a></p>
+            </footer>
+
+        </div>
+    </body>
+</html>
+

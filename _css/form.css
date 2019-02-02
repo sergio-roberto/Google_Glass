@@ -1,0 +1,64 @@
+@charset "UTF-8"; 
+
+/* Formatação do Formulário */
+
+form {
+    width: 500px;
+    margin: auto;
+}
+
+form p {
+    text-align: left;
+    text-indent: 0px;
+}
+
+input,textarea {
+    background-color: rgba(255,255,255,.8);
+}
+
+input:hover {
+    background-color: #dddddd;
+}
+
+
+form fieldset {
+    border-color: #cecece;
+}
+
+form legend {
+    font-family: sans-serif;
+    font-size: 13pt;
+    color: #888888;
+    font-weight: bolder;
+}
+
+fieldset#login {
+    border: none;
+    border-bottom: 2px #888888 solid;
+    padding: 0px;
+}
+
+fieldset#sexo {
+    width: 100px;
+    margin-left: 20px;
+}
+
+fieldset#mensagem label#lblmensagem {
+    vertical-align: top;
+}
+
+fieldset#endereco {
+    background: url("../_imagens/icone-endereco.png") no-repeat 90%;
+}
+
+fieldset#contato {
+    background: url("../_imagens/icone-contato.png") no-repeat 90% 100%;
+}
+
+fieldset#mensagem {
+    background: url("../_imagens/icone-mensagem.png") no-repeat 90% 100%;
+}
+
+fieldset#pagamento {
+    background: url("../_imagens/icone-pagamento.png") no-repeat 90% 100%;
+}
